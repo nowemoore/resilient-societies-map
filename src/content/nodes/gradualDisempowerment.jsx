@@ -29,12 +29,12 @@ export const gradualDisempowermentContent = {
     mustReads: [
       <><a href="https://arxiv.org/abs/2501.16946" target="_blank" rel="noreferrer" className="resource-link">Gradual Disempowerment: Systemic Existential Risks from Incremental AI Development</a> by Kulveit et al.</>,
       <><a href="" target="_blank" rel="noreferrer" className="resource-link">Gradual Disempowerment, Shell Games and Flinches</a> by Jan Kulveit</>,
-      <>Virginia Eubanks - <a href="" target="_blank" rel="noreferrer" className="resource-link">Automating Inequality</a></>,
+      <><a href="" target="_blank" rel="noreferrer" className="resource-link">Gradual Disempowerment: Concrete Research Projects</a> by Raymond Douglas</>,
     ],
     people: [
-      <>Digital rights advocates and public interest technologists</>,
-      <>Participatory governance practitioners</>,
-      <>Cultural strategists working on civic agency</>,
+      <>Raymond Douglas</>,
+      <>Jan Kulveit</>,
+      <><a href="https://acsresearch.org/" target="_blank" rel="noreferrer" className="resource-link">ACS</a></>,
     ],
     openQuestions: [
       <>What governance models keep high-complexity systems accountable?</>,

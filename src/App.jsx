@@ -198,7 +198,7 @@ function NodeModal({ nodeContent, onClose }) {
               <ul>{nodeContent.resources.mustReads.map((item, i) => <li key={i}>{item}</li>)}</ul>
             </div>
             <div>
-              <h3>People working on this</h3>
+              <h3>People and orgs</h3>
               <ul>{nodeContent.resources.people.map((item, i) => <li key={i}>{item}</li>)}</ul>
             </div>
             <div>
