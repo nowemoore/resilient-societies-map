@@ -37,9 +37,9 @@ export const gradualDisempowermentContent = {
       <><a href="https://acsresearch.org/" target="_blank" rel="noreferrer" className="resource-link">ACS</a></>,
     ],
     openQuestions: [
-      <>What governance models keep high-complexity systems accountable?</>,
-      <>How do we restore practical agency, not only formal participation?</>,
-      <>Which civic rituals can rebuild a culture of shared power?</>,
+      <>How do we monitor the progression of gradual disempowerment?</>,
+      <>Is there a point of no return for disempowerment, and can we identify it before we cross it?</>,
+      <>What's the minimum level of understanding required for oversight to be meaningful, and how do we maintain it?</>,
     ]
   }
 }
