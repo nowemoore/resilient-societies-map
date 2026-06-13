@@ -2,27 +2,27 @@ export const gradualDisempowermentContent = {
   id: 'gradualDisempowerment',
   title: 'Gradual Disempowerment',
   overview:
-    'People may retain formal rights while losing practical agency. Over time, decision power concentrates in opaque systems, reducing communities\' ability to shape their futures.',
+    'The economy, governments, and culture have historically served human interests because they depended on human participation to function — we worked, paid taxes, created, and voted, so the systems needed to keep us capable and engaged. AI threatens to break that dependency, and with it, the incentive for those systems to serve us at all.',
   timeline: [
     {
       label: 'Stage 1',
-      title: 'Interface Dependence',
-      text: 'Everyday life depends on systems people cannot inspect or contest. Convenience rises as procedural literacy declines.'
+      title: 'Learning to Not Know',
+      text: 'Everyday life is still mostly navigable without AI, but the generation entering adulthood has never learntEarly geopolitical competition over AI capability forces states to accelerate adoption in administrative and security functions — not because anyone wants reduced human oversight, but because the first-mover advantages are too large to ignore. the underlying processes and does not know it.'
     },
     {
       label: 'Stage 2',
-      title: 'Voice Dilution',
-      text: 'Public participation channels remain open but less consequential. Decisions are framed as technical inevitabilities rather than political choices.'
+      title: 'Formal Freedom, Practical Dependence',
+      text: 'The legal system has become sufficiently AI-mediated that most citizens can no longer navigate it without AI assistance. Formally, rights are intact. Practically, the ability to exercise them has become a function of AI access and literacy.'
     },
     {
       label: 'Stage 3',
-      title: 'Cultural Drift',
-      text: 'Communities normalize low agency and stop expecting meaningful influence. Informal norms shift from co-creation toward passive compliance.'
+      title: 'Beyond Human Speed',
+      text: 'Cultural evolution has accelerated to the point where new ideological variants, memes, and social movements emerge and spread faster than societies can develop resistance to them. The "antibody" development cycle that historically protected human communities is overwhelmed.'
     },
     {
       label: 'Stage 4',
-      title: 'Civic Hollowing',
-      text: 'Institutions persist as shells with weakened reciprocity. During crises, people disengage rather than coordinate, accelerating societal fragility.'
+      title: 'The Quiet Handover',
+      text: 'The disempowerment is effectively complete and effectively invisible: the systems function, people are fed and entertained, and the concept of meaningful human influence over civilization-scale outcomes has become as counterintuitive as the idea of navigating without GPS. Nobody designed this. Nobody decided it.'
     }
   ],
   resources: {
