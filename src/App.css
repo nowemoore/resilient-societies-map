@@ -55,8 +55,8 @@
 
 .rf-node {
   padding: 0.52rem 0.88rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 999px;
+  border: 2px solid transparent;
   font-family: 'Manrope', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
@@ -64,42 +64,46 @@
   line-height: 1.2;
   white-space: nowrap;
   user-select: none;
-  transition: box-shadow 160ms ease, border-color 160ms ease;
+  transition: box-shadow 160ms ease, filter 160ms ease;
 }
 
 /* tier sizing */
-.rf-node[data-tier="1"] { font-size: 1.18rem; font-weight: 700; padding: 0.78rem 1.3rem; border-radius: 13px; }
-.rf-node[data-tier="2"] { font-size: 0.98rem; font-weight: 600; padding: 0.62rem 1.05rem; }
-.rf-node[data-tier="3"] { font-size: 0.86rem; font-weight: 650; padding: 0.54rem 0.92rem; }
-.rf-node[data-tier="4"] { font-size: 0.72rem; font-weight: 400; padding: 0.36rem 0.66rem; border-radius: 8px; }
+.rf-node[data-tier="1"] { font-size: 1.32rem; font-weight: 700; padding: 1.05rem 1.8rem; border-radius: 999px; }
+.rf-node[data-tier="2"] { font-size: 1.1rem;  font-weight: 600; padding: 0.84rem 1.45rem; border-radius: 999px; }
+.rf-node[data-tier="3"] { font-size: 0.96rem; font-weight: 650; padding: 0.72rem 1.25rem; border-radius: 999px; }
+.rf-node[data-tier="4"] { font-size: 0.8rem;  font-weight: 400; padding: 0.5rem 0.92rem;  border-radius: 999px; }
 
-/* colour per tier: tier 1 brightest white → tier 4 darkest grey */
+/* colour per tier: gradient border + dark fill */
 .rf-node[data-tier="1"] {
-  background: rgba(255,255,255,0.96);
-  color: #0b0e14;
-  border-color: rgba(255,255,255,0.85);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.42);
+  background:
+    linear-gradient(#0a0a0b, #0e0e0f) padding-box,
+    linear-gradient(135deg, #b8b8ba, #f2f2f4, #b8b8ba) border-box;
+  color: #f2f2f4;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.52), 0 0 18px rgba(242,242,244,0.08);
 }
 
 .rf-node[data-tier="2"] {
-  background: rgba(210,216,228,0.88);
-  color: #111620;
-  border-color: rgba(220,226,240,0.7);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.38);
+  background:
+    linear-gradient(#0a0a0b, #0e0e0f) padding-box,
+    linear-gradient(135deg, #c4a8c4, #ffe8ff, #c4a8c4) border-box;
+  color: #ffe8ff;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.48), 0 0 14px rgba(255,232,255,0.08);
 }
 
 .rf-node[data-tier="3"] {
-  background: rgba(120,130,148,0.72);
-  color: #edf0f6;
-  border-color: rgba(180,188,204,0.45);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.34);
+  background:
+    linear-gradient(#0a0a0b, #0e0e0f) padding-box,
+    linear-gradient(135deg, #2090a4, #50d4c4, #2090a4) border-box;
+  color: #40c8b8;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.44), 0 0 16px rgba(58,188,176,0.14);
 }
 
 .rf-node[data-tier="4"] {
-  background: rgba(38,44,58,0.82);
-  color: #a8b2c6;
-  border-color: rgba(255,255,255,0.1);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  background:
+    linear-gradient(#0a0a0b, #0e0e0f) padding-box,
+    linear-gradient(135deg, #607870, #97b1ab, #607870) border-box;
+  color: #97b1ab;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.40);
 }
 
 .rf-node--clickable {
@@ -108,13 +112,16 @@
 }
 
 .rf-node--clickable:hover {
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.55), 0 8px 22px rgba(0,0,0,0.5);
-  border-color: rgba(255,255,255,0.9);
+  filter: brightness(1.2) saturate(1.15);
 }
 
 .rf-node__label {
   display: block;
   pointer-events: none;
+}
+
+.rf-node__icon {
+  margin-right: 0.42em;
 }
 
 .rf-handle {
@@ -325,10 +332,7 @@
   touch-action: none;
   cursor: grab;
   user-select: none;
-  background:
-    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.09), transparent 36%),
-    radial-gradient(circle at 82% 74%, rgba(205, 214, 229, 0.06), transparent 34%),
-    linear-gradient(160deg, #07080a, #0d1014 54%, #090b0f);
+  background: transparent;
 }
 
 .graph-stage::before {
