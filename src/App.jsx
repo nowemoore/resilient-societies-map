@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react'
 import {
   ReactFlow,
   Controls,
-  MiniMap,
   Handle,
   Position,
   useNodesState,
@@ -32,11 +31,12 @@ const rawNodes = [
   // ── top leaf row (human branch +75) ────────────────────────────────────
   { id: 'isolation',             label: 'isolation',              x: -160, y: 235, dominant: false, tier: 4 },
   { id: 'psychosis',             label: 'psychosis',              x: 430,  y: 91,  dominant: false, tier: 4 },
-  { id: 'identity',              label: 'identity',               x: 264,  y: 99,  dominant: false, tier: 4 },
-  { id: 'deterioration',         label: 'social skill decline',   x: -160, y: 139, dominant: false, tier: 4 },
+  { id: 'parasocialAttachment',  label: 'parasocial attachment',  x: 570,  y: 91,  dominant: false, tier: 4 },
+  { id: 'identity',              label: 'identity destabilisation', x: 220, y: 99,  dominant: false, tier: 4 },
+  { id: 'deterioration',         label: 'social skill atrophy',   x: -160, y: 139, dominant: false, tier: 4 },
 
   // ── upper mid ────────────────────────────────────────────────────────────
-  { id: 'social',                label: 'social implications',    x: -10,  y: 215, dominant: true,  tier: 3 },
+  { id: 'social',                label: 'community risks',        x: -10,  y: 215, dominant: true,  tier: 3 },
   { id: 'emotionalSafety',       label: 'emotional safety',       x: 312,  y: 215, dominant: true,  tier: 3 },
   { id: 'economics',             label: 'economic impacts',       x: 904,  y: 65,  dominant: true,  tier: 3 },
 
@@ -62,13 +62,14 @@ const rawNodes = [
   { id: 'informationSafety',     label: 'information safety',     x: 168,  y: 643, dominant: false, tier: 4 },
   { id: 'knowledgeCollapse',     label: 'knowledge collapse',     x: 430,  y: 543, dominant: false, tier: 4 },
   { id: 'collectiveCognition',   label: 'collective cognition',   x: 580,  y: 643, dominant: false, tier: 4 },
-  { id: 'culture',               label: 'culture',                x: 800,  y: 500, dominant: false, tier: 4 },
+  { id: 'culture',               label: 'cultural displacement',  x: 800,  y: 500, dominant: false, tier: 4 },
 ]
 
 const rawEdges = [
   ['humanInfluence',        'social',                'left-src', 'bottom-tgt'],
 
   ['emotionalSafety',       'psychosis',             'top-src',  'bottom-tgt'],
+  ['emotionalSafety',       'parasocialAttachment',  'top-src',  'bottom-tgt'],
   ['emotionalSafety',       'identity',              'top-src',  'bottom-tgt'],
   ['humanInfluence',        'emotionalSafety',        'top-src',  'bottom-tgt'],
   ['humanInfluence',        'epistemicRisk',         'bottom',   'top'],
@@ -114,7 +115,7 @@ const initialEdges = rawEdges.map(([source, target, sourceHandle, targetHandle])
   style: {
     stroke: 'rgba(255,255,255,0.52)',
     strokeWidth: 1.5,
-    ...(tierById[source] === 4 && tierById[target] === 4 ? { strokeDasharray: '5 5' } : {}),
+    ...(tierById[source] === tierById[target] ? { strokeDasharray: '5 5' } : {}),
   },
 }))
 
@@ -258,7 +259,7 @@ const onNodeClick = useCallback((_event, node) => {
           <p className="page-kicker">Field Map</p>
           <h1>Hot Topics in Societal Resilience</h1>
           <p className="page-description">
-            Drag to pan · Wheel to zoom · Click a highlighted node to open its briefing
+            Drag to pan · Pinch to zoom · Click a highlighted node to open its briefing
           </p>
         </header>
 
@@ -275,6 +276,9 @@ const onNodeClick = useCallback((_event, node) => {
             nodesDraggable={false}
             nodesConnectable={false}
             elementsSelectable={false}
+            zoomOnScroll={false}
+            zoomOnDoubleClick={false}
+            preventScrolling={false}
             proOptions={{ hideAttribution: true }}
             defaultEdgeOptions={{ pathOptions: { curvature: 0.7 } }}
           >
@@ -286,16 +290,45 @@ const onNodeClick = useCallback((_event, node) => {
                 borderRadius: 10,
               }}
             />
-            <MiniMap
-              nodeColor={(n) =>
-                n.data.dominant ? 'rgba(255,255,255,0.85)' : 'rgba(120,128,140,0.7)'
-              }
-              maskColor="rgba(7,9,14,0.74)"
-              style={{ background: 'rgba(10,13,18,0.82)', borderRadius: 10 }}
-            />
           </ReactFlow>
         </div>
       </div>
+
+      <section className="faq-section">
+        <div className="faq-inner">
+          <h2 className="faq-heading">Frequently Asked Questions</h2>
+          <div className="faq-list">
+            <details className="faq-item">
+              <summary className="faq-question">
+                What is this map?
+                <i className="fa-solid fa-circle-chevron-down faq-chevron" />
+              </summary>
+              <p className="faq-answer">Placeholder answer about what the map is and how to use it.</p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-question">
+                How are the nodes connected?
+                <i className="fa-solid fa-circle-chevron-down faq-chevron" />
+              </summary>
+              <p className="faq-answer">Placeholder answer about the relationships between nodes.</p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-question">
+                Who is this for?
+                <i className="fa-solid fa-circle-chevron-down faq-chevron" />
+              </summary>
+              <p className="faq-answer">Placeholder answer about the intended audience.</p>
+            </details>
+            <details className="faq-item">
+              <summary className="faq-question">
+                Does the author think they ate all the knowledge of AIS that they can write an exhaustive list od topics like that?
+                <i className="fa-solid fa-circle-chevron-down faq-chevron" />
+              </summary>
+              <p className="faq-answer">No. This is a living project. If you know of a research direction or topic in societal resilience that should be included but isn't, email nowe.moore@gmail.com.</p>
+            </details>
+          </div>
+        </div>
+      </section>
 
       <NodeModal nodeContent={activeNodeContent} onClose={() => setActiveNodeId(null)} />
     </>
