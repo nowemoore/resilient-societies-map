@@ -300,24 +300,17 @@ const onNodeClick = useCallback((_event, node) => {
           <div className="faq-list">
             <details className="faq-item">
               <summary className="faq-question">
-                What is this map?
+                What is this map? What do the nodes actually represent?
                 <i className="fa-solid fa-circle-chevron-down faq-chevron" />
               </summary>
-              <p className="faq-answer">Placeholder answer about what the map is and how to use it.</p>
+              <p className="faq-answer">This is a map of research directions on the interface of AI safety and humanity's long-term interests. The further out of the center, the more specific the focus area, with the outmost nodes representing specific problems.</p>
             </details>
             <details className="faq-item">
               <summary className="faq-question">
-                How are the nodes connected?
+                Who is this map for?
                 <i className="fa-solid fa-circle-chevron-down faq-chevron" />
               </summary>
-              <p className="faq-answer">Placeholder answer about the relationships between nodes.</p>
-            </details>
-            <details className="faq-item">
-              <summary className="faq-question">
-                Who is this for?
-                <i className="fa-solid fa-circle-chevron-down faq-chevron" />
-              </summary>
-              <p className="faq-answer">Placeholder answer about the intended audience.</p>
+              <p className="faq-answer">If you're an aspiring conceptual researcher, a transitioning technical researcher, or just curious about open problems in societal resilience, this map may be for you.</p>
             </details>
             <details className="faq-item">
               <summary className="faq-question">
