@@ -3,7 +3,7 @@ import { emotionalSafetyContent } from './emotionalSafety.jsx'
 import { epistemicRiskContent } from './epistemicRisk.jsx'
 import { gradualDisempowermentContent } from './gradualDisempowerment.jsx'
 import { socialContent } from './social.jsx'
-import { concentrationOfPowerContent } from './concentrationOfPower.jsx'
+import { politicalImpactsContent } from './politicalImpacts.jsx'
 
 export const nodeContentById = {
   social: socialContent,
@@ -11,5 +11,5 @@ export const nodeContentById = {
   epistemicRisk: epistemicRiskContent,
   economics: economicsContent,
   gradualDisempowerment: gradualDisempowermentContent,
-  concentrationOfPower: concentrationOfPowerContent,
+  politicalImpacts: politicalImpactsContent,
 }

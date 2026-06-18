@@ -213,183 +213,6 @@
   background: rgba(30,36,48,0.95) !important;
 }
 
-/* ── modal ───────────────────────────────────────────────────────────────── */
-
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  background: rgba(4,6,10,0.72);
-  backdrop-filter: blur(7px);
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-.detail-modal {
-  width: min(840px, 100%);
-  max-height: min(90svh, 760px);
-  overflow: auto;
-  border-radius: 20px;
-  padding: 1.55rem 2.4rem;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: linear-gradient(155deg, #0d1118, #111520);
-  color: #cdd5e4;
-  box-shadow: 0 24px 56px rgba(0,0,0,0.7);
-  animation: modal-rise 200ms ease-out;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.1) transparent;
-}
-
-.detail-modal::-webkit-scrollbar { width: 4px; }
-.detail-modal::-webkit-scrollbar-button { display: none; }
-.detail-modal::-webkit-scrollbar-track { background: transparent; }
-.detail-modal::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.1);
-  border-radius: 4px;
-}
-.detail-modal::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.22);
-}
-
-.modal-close {
-  float: right;
-  background: none;
-  border: none;
-  color: rgba(170,185,210,0.65);
-  font-size: 1.45rem;
-  line-height: 1;
-  padding: 0;
-  cursor: pointer;
-  transition: color 140ms ease;
-}
-
-.modal-close:hover {
-  color: rgba(255,255,255,0.95);
-}
-
-.modal-section {
-  clear: both;
-  margin-top: 4rem;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.modal-section:first-of-type {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
-}
-
-.section-kicker {
-  margin: 0 0 0.35rem;
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #6b80a0;
-}
-
-.overview-copy {
-  margin: 0;
-  color: #b0bcd0;
-}
-
-.timeline-track {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 0.75rem 0 1rem;
-}
-
-.timeline-track::before {
-  content: '';
-  position: absolute;
-  top: 7px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255,255,255,0.18);
-}
-
-.timeline-dot {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.38rem;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.timeline-dot-marker {
-  display: block;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 1.5px solid rgba(255,255,255,0.28);
-  transition: background 150ms ease, border-color 150ms ease;
-}
-
-.timeline-dot.is-active .timeline-dot-marker {
-  background: rgba(160,174,200,0.9);
-  border-color: rgba(220,230,245,0.85);
-}
-
-.timeline-year {
-  font-size: 0.7rem;
-  color: rgba(130,148,172,0.75);
-  letter-spacing: 0.04em;
-  transition: color 150ms ease;
-}
-
-.timeline-dot.is-active .timeline-year {
-  color: #dce6f4;
-}
-
-.timeline-detail h3 { margin: 0; color: #e2e8f4; }
-.timeline-detail p  { margin: 0.5rem 0 0; color: #a4b0c4; }
-
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 0.75rem;
-}
-
-.resource-grid h3 { margin: 0; font-size: 0.98rem; color: #e2e8f4; }
-.resource-grid ul  { margin: 0.5rem 0 0; padding-left: 1.06rem; color: #8090a8; }
-.resource-grid li  { margin-bottom: 0.4rem; }
-
-.resource-link {
-  color: #8090a8;
-  text-underline-offset: 3px;
-  text-decoration-color: rgba(128,144,168,0.4);
-  transition: color 140ms ease, text-decoration-color 140ms ease;
-}
-
-.resource-link:hover {
-  color: #c8d6ee;
-  text-decoration-color: rgba(200,214,238,0.6);
-}
-
-@keyframes modal-rise {
-  from { transform: translateY(12px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
-}
-
-@media (max-width: 980px) {
-  .resource-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 680px) {
-  .timeline-points { grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-
 .graph-stage {
   position: relative;
   width: 100%;
@@ -546,12 +369,14 @@
   border-color: rgba(210, 216, 225, 0.35);
 }
 
+/* ── modal ───────────────────────────────────────────────────────────────── */
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
   z-index: 30;
-  background: rgba(24, 16, 20, 0.58);
-  backdrop-filter: blur(6px);
+  background: rgba(4,6,10,0.72);
+  backdrop-filter: blur(7px);
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -559,25 +384,33 @@
 }
 
 .detail-modal {
-  width: min(840px, 100%);
-  max-height: min(90svh, 760px);
-  overflow: auto;
+  width: min(620px, 100%);
+  max-height: min(90svh, 720px);
   border-radius: 20px;
-  padding: 1.55rem 2.4rem;
+  padding: 1.4rem 0.8rem 2rem 2.2rem;
   box-sizing: border-box;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: linear-gradient(155deg, #0d1118, #111520);
-  color: #cdd5e4;
-  box-shadow: 0 24px 56px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(155deg, #111214, #141618);
+  color: #c8c4be;
+  box-shadow: 0 24px 56px rgba(0,0,0,0.72);
   animation: modal-rise 220ms ease-out;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-topbar {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  padding-bottom: 0.6rem;
 }
 
 .modal-close {
-  float: right;
   background: none;
   border: none;
-  color: rgba(170,185,210,0.65);
-  font-size: 1.45rem;
+  color: rgba(200,196,190,0.5);
+  font-size: 1.35rem;
   line-height: 1;
   padding: 0;
   cursor: pointer;
@@ -585,14 +418,33 @@
 }
 
 .modal-close:hover {
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,0.9);
+}
+
+.modal-body {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.modal-body::-webkit-scrollbar { width: 4px; }
+.modal-body::-webkit-scrollbar-button { display: none; }
+.modal-body::-webkit-scrollbar-track { background: transparent; }
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 .modal-section {
-  clear: both;
-  margin-top: 4rem;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-right: 1.4rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .modal-section:first-of-type {
@@ -602,49 +454,63 @@
 }
 
 .section-kicker {
-  margin: 0 0 0.35rem;
-  font-size: 0.76rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #6b80a0;
+  letter-spacing: 0.16em;
+  color: #787470;
+}
+
+.modal-section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #e8e4de;
+  line-height: 1.2;
 }
 
 .overview-copy {
   margin: 0;
-  color: #b0bcd0;
+  color: #a4a09a;
+  line-height: 1.7;
 }
 
+.resource-subsection {
+  padding: 1.1rem 0;
+}
 
-.timeline-detail h3 {
+.resource-subsection:first-of-type {
+  padding-top: 0.6rem;
+}
+
+.resource-subsection h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e4e0da;
+}
+
+.resource-subsection ul {
   margin: 0;
-  color: #e2e8f4;
+  padding-left: 1.1rem;
+  color: #8a8680;
 }
 
-.timeline-detail p {
-  margin: 0.5rem 0 0;
-  color: #a4b0c4;
+.resource-subsection li {
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
 }
 
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+.resource-link {
+  color: #8a8680;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(138,134,128,0.4);
+  transition: color 140ms ease, text-decoration-color 140ms ease;
 }
 
-.resource-grid h3 {
-  margin: 0;
-  font-size: 0.98rem;
-  color: #e2e8f4;
-}
-
-.resource-grid ul {
-  margin: 0.5rem 0 0;
-  padding-left: 1.06rem;
-  color: #8090a8;
-}
-
-.resource-grid li {
-  margin-bottom: 0.4rem;
+.resource-link:hover {
+  color: #c8c4be;
+  text-decoration-color: rgba(200,196,190,0.6);
 }
 
 @keyframes modal-rise {
@@ -658,21 +524,8 @@
   }
 }
 
-@media (max-width: 980px) {
-  .resource-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 680px) {
-  .header {
-    width: calc(100% - 1rem);
-    top: 0.5rem;
-    left: 0.5rem;
-    padding: 0.72rem;
-  }
-
-  .timeline-points {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .detail-modal {
+    padding: 1.1rem 1.4rem 1.5rem;
   }
 }

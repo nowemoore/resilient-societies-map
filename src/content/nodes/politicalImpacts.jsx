@@ -1,8 +1,8 @@
-export const concentrationOfPowerContent = {
-  id: 'concentrationOfPower',
-  title: 'Concentration of Power',
+export const politicalImpactsContent = {
+  id: 'politicalImpacts',
+  title: 'Political Impacts',
   overview:
-    <>When decision-making authority and resources accumulate in a small number of actors — states, corporations, or platforms — societal resilience falls. Diversity of power is a core buffer against systemic shocks.</>,
+    <>Advanced AI reshapes the distribution of political power in ways that are difficult to reverse. Concentrated capability leads to concentrated authority — over information, infrastructure, and ultimately governance. Understanding these dynamics is essential for preserving the institutional diversity and checks-and-balances that democratic societies depend on.</>,
   timeline: [
     {
       label: 'Stage 1',

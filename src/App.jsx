@@ -88,6 +88,7 @@ const rawEdges = [
   ['systemsInfluence',      'gradualDisempowerment', 'bottom',   'top'],
   ['systemsInfluence',      'politicalImpacts',      'right',    'left'],
   ['politicalImpacts',      'concentrationOfPower',  'right',    'left'],
+  ['concentrationOfPower',  'economics',             'left-src', 'right-tgt'],
   ['politicalImpacts',      'stateCollapse',         'right',    'left'],
   ['gradualDisempowerment', 'economics',             'top-src',  'left'],
   ['gradualDisempowerment', 'culture',               'bottom',   'top'],
@@ -150,16 +151,7 @@ const nodeTypes = { resilienceNode: ResilienceNode }
 
 // ─── modal ───────────────────────────────────────────────────────────────────
 
-
-const TIMELINE_YEARS = ['2031', '2036', '2056', '2076']
-
 function NodeModal({ nodeContent, onClose }) {
-  const [activeTimelineIndex, setActiveTimelineIndex] = useState(0)
-
-  useEffect(() => {
-    setActiveTimelineIndex(0)
-  }, [nodeContent?.id])
-
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
@@ -167,8 +159,6 @@ function NodeModal({ nodeContent, onClose }) {
   }, [onClose])
 
   if (!nodeContent) return null
-
-  const point = nodeContent.timeline[activeTimelineIndex]
 
   return (
     <div className="modal-backdrop" onClick={onClose} role="presentation">
@@ -179,56 +169,38 @@ function NodeModal({ nodeContent, onClose }) {
         aria-labelledby="modal-title"
         onClick={(e) => e.stopPropagation()}
       >
-        <button type="button" className="modal-close" onClick={onClose} aria-label="Close details">
-          <i className="fa-solid fa-circle-xmark" />
-        </button>
+        <header className="modal-topbar">
+          <button type="button" className="modal-close" onClick={onClose} aria-label="Close details">
+            <i className="fa-solid fa-circle-xmark" />
+          </button>
+        </header>
 
-        <section className="modal-section">
-          <p className="section-kicker">Problem overview</p>
-          <h2 id="modal-title">{nodeContent.title}</h2>
-          <p className="overview-copy">{nodeContent.overview}</p>
-        </section>
+        <div className="modal-body">
+          <section className="modal-section">
+            <p className="section-kicker">Problem overview</p>
+            <h2 id="modal-title">{nodeContent.title}</h2>
+            <p className="overview-copy">{nodeContent.overview}</p>
+          </section>
 
-        <section className="modal-section">
-          <p className="section-kicker">Timeline</p>
-          <div className="timeline-track" role="tablist">
-            {nodeContent.timeline.map((pt, i) => (
-              <button
-                key={pt.title}
-                type="button"
-                role="tab"
-                aria-selected={i === activeTimelineIndex}
-                className={`timeline-dot${i === activeTimelineIndex ? ' is-active' : ''}`}
-                onClick={() => setActiveTimelineIndex(i)}
-              >
-                <span className="timeline-dot-marker" />
-                <span className="timeline-year">{TIMELINE_YEARS[i]}</span>
-              </button>
-            ))}
-          </div>
-          <div className="timeline-detail">
-            <h3>{point.title}</h3>
-            <p>{point.text}</p>
-          </div>
-        </section>
+          <section className="modal-section">
+            <p className="section-kicker">Resource hub</p>
 
-        <section className="modal-section">
-          <p className="section-kicker">Resource hub</p>
-          <div className="resource-grid">
-            <div>
+            <div className="resource-subsection">
               <h3>Must-reads</h3>
               <ul>{nodeContent.resources.mustReads.map((item, i) => <li key={i}>{item}</li>)}</ul>
             </div>
-            <div>
+
+            <div className="resource-subsection">
               <h3>People and orgs</h3>
               <ul>{nodeContent.resources.people.map((item, i) => <li key={i}>{item}</li>)}</ul>
             </div>
-            <div>
+
+            <div className="resource-subsection">
               <h3>Open questions</h3>
               <ul>{nodeContent.resources.openQuestions.map((item, i) => <li key={i}>{item}</li>)}</ul>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </article>
     </div>
   )
@@ -303,7 +275,7 @@ const onNodeClick = useCallback((_event, node) => {
                 What is this map? What do the nodes actually represent?
                 <i className="fa-solid fa-circle-chevron-down faq-chevron" />
               </summary>
-              <p className="faq-answer">This is a map of research directions on the interface of AI safety and humanity's long-term interests. The further out of the center, the more specific the focus area, with the outmost nodes representing specific problems.</p>
+              <p className="faq-answer">This is a map of research directions on the interface of AI safety and humanity's (long-term) resilience. The further out of the center, the more specific the focus area, with the outmost nodes representing specific problems.</p>
             </details>
             <details className="faq-item">
               <summary className="faq-question">
@@ -314,10 +286,10 @@ const onNodeClick = useCallback((_event, node) => {
             </details>
             <details className="faq-item">
               <summary className="faq-question">
-                Does the author think they ate all the knowledge of AIS that they can write an exhaustive list od topics like that?
+                Who does the author think they are to prescribe a list od topics like that?
                 <i className="fa-solid fa-circle-chevron-down faq-chevron" />
               </summary>
-              <p className="faq-answer">No. This is a living project. If you know of a research direction or topic in societal resilience that should be included but isn't, email nowe.moore@gmail.com.</p>
+              <p className="faq-answer">This is a living project. If you know of a research direction or topic in societal resilience that should be included but isn't, email nowe.moore@gmail.com.</p>
             </details>
           </div>
         </div>
