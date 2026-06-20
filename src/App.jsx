@@ -20,6 +20,7 @@ const NODE_ICONS = {
   epistemicRisk:         'fa-brain',
   politicalImpacts:      'fa-building-columns',
   gradualDisempowerment: 'fa-faucet-drip',
+  misalignment:          'fa-arrow-right-arrow-left',
 }
 
 // ─── graph data ────────────────────────────────────────────────────────────────
@@ -53,8 +54,11 @@ const rawNodes = [
   // ── econ leaves (sys branch -75) ─────────────────────────────────────────
   { id: 'postAGIEconomics',      label: 'post-AGI economics',     x: 940,  y: -55, dominant: false, tier: 4 },
 
+  // ── misalignment (sys branch) ────────────────────────────────────────────
+  { id: 'misalignment',         label: 'misalignment',           x: 1190, y: 420, dominant: true,  tier: 3 },
+
   // ── COP leaves (sys branch -75) ──────────────────────────────────────────
-  { id: 'concentrationOfPower',  label: 'concentration of power', x: 1420, y: 157, dominant: false, tier: 4 },
+  { id: 'concentrationOfPower',  label: 'concentration of power', x: 1420, y: 100, dominant: false, tier: 4 },
   { id: 'stateCollapse',         label: 'state collapse',         x: 1420, y: 237, dominant: false, tier: 4 },
 
   // ── bottom leaf row ──────────────────────────────────────────────────────
@@ -85,10 +89,11 @@ const rawEdges = [
   ['knowledgeCollapse',     'epistemicRisk',         'left-src', 'right-tgt'],
   ['systemsInfluence',      'economics',             'top-src',  'bottom-tgt'],
   ['economics',             'postAGIEconomics',      'top-src',  'bottom-tgt'],
+  ['systemsInfluence',      'misalignment',          'right',    'left'],
   ['systemsInfluence',      'gradualDisempowerment', 'bottom',   'top'],
   ['systemsInfluence',      'politicalImpacts',      'right',    'left'],
   ['politicalImpacts',      'concentrationOfPower',  'right',    'left'],
-  ['concentrationOfPower',  'economics',             'left-src', 'right-tgt'],
+  ['concentrationOfPower',  'economics',             'top-src',  'bottom-tgt'],
   ['politicalImpacts',      'stateCollapse',         'right',    'left'],
   ['gradualDisempowerment', 'economics',             'top-src',  'left'],
   ['gradualDisempowerment', 'culture',               'bottom',   'top'],
@@ -230,8 +235,11 @@ const onNodeClick = useCallback((_event, node) => {
         <header className="page-hero">
           <p className="page-kicker">Field Map</p>
           <h1>Hot Topics in Societal Resilience</h1>
+          <p className="page-intro">
+            A lot of AIS research lacks long-term vision. Many people look into how to make AI more capable and less mean, but very few ask: "And then what?" For humanity to survive <em>and</em> flourish in AI-augmented futures, we need to be asking these questions. This page exists to lower the barriers to strategy research, hand-pick the most relevant resources, and help anyone who cares about future societies think more strategically, starting now.
+          </p>
           <p className="page-description">
-            Drag to pan · Pinch to zoom · Click a highlighted node to open its briefing
+            drag to pan · pinch to zoom · click a highlighted node to learn more
           </p>
         </header>
 
@@ -264,6 +272,12 @@ const onNodeClick = useCallback((_event, node) => {
             />
           </ReactFlow>
         </div>
+      </div>
+
+      <div className="section-divider">
+        <span className="section-divider__line" />
+        <i className="fa-solid fa-seedling section-divider__icon" />
+        <span className="section-divider__line" />
       </div>
 
       <section className="faq-section">
