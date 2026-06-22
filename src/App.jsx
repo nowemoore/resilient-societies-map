@@ -52,14 +52,11 @@ const rawNodes = [
   { id: 'politicalImpacts',      label: 'political impacts',      x: 1190, y: 175, dominant: true,  tier: 3 },
 
   // ── econ leaves (sys branch -75) ─────────────────────────────────────────
-  { id: 'wealthHoarding',        label: 'wealth hoarding',        x: 620,  y: -60,  dominant: false, tier: 4 },
-  { id: 'redistributionFailure', label: 'redistribution failure', x: 770,  y: -95,  dominant: false, tier: 4 },
-  { id: 'automationStagnation',  label: 'automation stagnation',  x: 1100, y: -95,  dominant: false, tier: 4 },
-  { id: 'laborShareCollapse',    label: 'labor share collapse',   x: 1270, y: -60,  dominant: false, tier: 4 },
-  { id: 'liabilityVacuum',       label: 'liability vacuum',       x: 700,  y: -150, dominant: false, tier: 4 },
-  { id: 'taxBaseErosion',        label: 'tax base erosion',       x: 860,  y: -170, dominant: false, tier: 4 },
-  { id: 'transitionShock',       label: 'transition shock',       x: 1020, y: -170, dominant: false, tier: 4 },
-  { id: 'marketConcentration',   label: 'market concentration',   x: 1180, y: -150, dominant: false, tier: 4 },
+  { id: 'liabilityVacuum',       label: 'liability vacuum',       x: 700,  y: -15,  dominant: false, tier: 4 },
+  { id: 'redistributionFailure', label: 'redistribution failure', x: 758,  y: -80,  dominant: false, tier: 4 },
+  { id: 'taxBaseErosion',        label: 'tax base erosion',       x: 923,  y: -100, dominant: false, tier: 4 },
+  { id: 'transitionShock',       label: 'transition shock',       x: 1073, y: -80,  dominant: false, tier: 4 },
+  { id: 'marketConcentration',   label: 'market concentration',   x: 1150, y: -15,  dominant: false, tier: 4 },
 
   // ── misalignment (sys branch) ────────────────────────────────────────────
   { id: 'misalignment',         label: 'misalignment',           x: 1190, y: 420, dominant: true,  tier: 3 },
@@ -96,10 +93,7 @@ const rawEdges = [
   ['knowledgeCollapse',     'epistemicRisk',         'left-src', 'right-tgt'],
   ['systemsInfluence',      'economics',             'top-src',  'bottom-tgt'],
   ['economics',             'postAGIEconomics',      'top-src',  'bottom-tgt'],
-  ['economics',             'wealthHoarding',        'top-src',  'bottom-tgt'],
   ['economics',             'redistributionFailure', 'top-src',  'bottom-tgt'],
-  ['economics',             'automationStagnation',  'top-src',  'bottom-tgt'],
-  ['economics',             'laborShareCollapse',    'top-src',  'bottom-tgt'],
   ['economics',             'liabilityVacuum',       'top-src',  'bottom-tgt'],
   ['economics',             'taxBaseErosion',        'top-src',  'bottom-tgt'],
   ['economics',             'transitionShock',       'top-src',  'bottom-tgt'],
@@ -220,7 +214,7 @@ function NodeModal({ nodeContent, onClose }) {
 
             {nodeContent.resources.mustReads?.length > 0 && (
               <div className="resource-subsection">
-                <h3>Must-reads</h3>
+                <h3>Must-Reads</h3>
                 <ResourceList items={nodeContent.resources.mustReads} icon="fa-book" />
               </div>
             )}
@@ -234,14 +228,14 @@ function NodeModal({ nodeContent, onClose }) {
 
             {nodeContent.resources.orgs?.length > 0 && (
               <div className="resource-subsection">
-                <h3>Organisations</h3>
+                <h3>Orgs</h3>
                 <ResourceList items={nodeContent.resources.orgs} icon="fa-building-columns" />
               </div>
             )}
 
             {nodeContent.resources.openQuestions?.length > 0 && (
               <div className="resource-subsection">
-                <h3>Open questions</h3>
+                <h3>Open Questions</h3>
                 <ResourceList items={nodeContent.resources.openQuestions} icon="fa-magnifying-glass" />
               </div>
             )}
@@ -341,10 +335,17 @@ const onNodeClick = useCallback((_event, node) => {
             </details>
             <details className="faq-item">
               <summary className="faq-question">
-                Who does the author think they are to prescribe a list od topics like that?
+                Why should I trust the author hasn't missed anything important?
                 <i className="fa-solid fa-circle-chevron-down faq-chevron" />
               </summary>
-              <p className="faq-answer">This is a living project. If you know of a research direction or topic in societal resilience that should be included but isn't, email nowe.moore@gmail.com.</p>
+              <p className="faq-answer">You shouldn't! This is a living project. If you know of a research direction or topic in societal resilience that should be included but isn't, email nowe.moore@gmail.com.</p>
+            </details>
+             <details className="faq-item">
+              <summary className="faq-question">
+                What makes the author qualified to curate these resources?
+                <i className="fa-solid fa-circle-chevron-down faq-chevron" />
+              </summary>
+              <p className="faq-answer">Not much, which is why the author asked some of the most well-read and clear-thinking people she knows. Shout out to  [...]</p>
             </details>
           </div>
         </div>
