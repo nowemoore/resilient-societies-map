@@ -33,8 +33,10 @@ export const epistemicRiskContent = {
     ],
     people: [
       <>Journalists experimenting with trust-building editorial formats</>,
-      <>Open-source intelligence communities</>,
       <>Cognitive scientists studying collective reasoning</>,
+    ],
+    orgs: [
+      <>Open-source intelligence communities</>,
     ],
     openQuestions: [
       <>What public infrastructures can support shared reality-testing?</>,

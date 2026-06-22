@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+@import './cols/colors.css';
 
 :root {
   /* ── text scale ───────────────────────────────────────────────────────── */
@@ -21,7 +22,7 @@
   font-family: 'Manrope', 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #2d2528;
+  color: var(--color-root-fg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -42,7 +43,7 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   min-width: 320px;
-  background: radial-gradient(ellipse 110% 85% at 50% 50%, #161617 0%, #0a0a0b 70%) fixed;
+  background: radial-gradient(ellipse 110% 85% at 50% 50%, var(--color-bg-center) 0%, var(--color-bg-edge) 70%) fixed;
 }
 
 #root {

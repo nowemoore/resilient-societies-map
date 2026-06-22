@@ -52,7 +52,14 @@ const rawNodes = [
   { id: 'politicalImpacts',      label: 'political impacts',      x: 1190, y: 175, dominant: true,  tier: 3 },
 
   // ── econ leaves (sys branch -75) ─────────────────────────────────────────
-  { id: 'postAGIEconomics',      label: 'post-AGI economics',     x: 940,  y: -55, dominant: false, tier: 4 },
+  { id: 'wealthHoarding',        label: 'wealth hoarding',        x: 620,  y: -60,  dominant: false, tier: 4 },
+  { id: 'redistributionFailure', label: 'redistribution failure', x: 770,  y: -95,  dominant: false, tier: 4 },
+  { id: 'automationStagnation',  label: 'automation stagnation',  x: 1100, y: -95,  dominant: false, tier: 4 },
+  { id: 'laborShareCollapse',    label: 'labor share collapse',   x: 1270, y: -60,  dominant: false, tier: 4 },
+  { id: 'liabilityVacuum',       label: 'liability vacuum',       x: 700,  y: -150, dominant: false, tier: 4 },
+  { id: 'taxBaseErosion',        label: 'tax base erosion',       x: 860,  y: -170, dominant: false, tier: 4 },
+  { id: 'transitionShock',       label: 'transition shock',       x: 1020, y: -170, dominant: false, tier: 4 },
+  { id: 'marketConcentration',   label: 'market concentration',   x: 1180, y: -150, dominant: false, tier: 4 },
 
   // ── misalignment (sys branch) ────────────────────────────────────────────
   { id: 'misalignment',         label: 'misalignment',           x: 1190, y: 420, dominant: true,  tier: 3 },
@@ -89,6 +96,14 @@ const rawEdges = [
   ['knowledgeCollapse',     'epistemicRisk',         'left-src', 'right-tgt'],
   ['systemsInfluence',      'economics',             'top-src',  'bottom-tgt'],
   ['economics',             'postAGIEconomics',      'top-src',  'bottom-tgt'],
+  ['economics',             'wealthHoarding',        'top-src',  'bottom-tgt'],
+  ['economics',             'redistributionFailure', 'top-src',  'bottom-tgt'],
+  ['economics',             'automationStagnation',  'top-src',  'bottom-tgt'],
+  ['economics',             'laborShareCollapse',    'top-src',  'bottom-tgt'],
+  ['economics',             'liabilityVacuum',       'top-src',  'bottom-tgt'],
+  ['economics',             'taxBaseErosion',        'top-src',  'bottom-tgt'],
+  ['economics',             'transitionShock',       'top-src',  'bottom-tgt'],
+  ['economics',             'marketConcentration',   'top-src',  'bottom-tgt'],
   ['systemsInfluence',      'misalignment',          'right',    'left'],
   ['systemsInfluence',      'gradualDisempowerment', 'bottom',   'top'],
   ['systemsInfluence',      'politicalImpacts',      'right',    'left'],
@@ -119,7 +134,7 @@ const initialEdges = rawEdges.map(([source, target, sourceHandle, targetHandle])
   sourceHandle,
   targetHandle,
   style: {
-    stroke: 'rgba(255,255,255,0.52)',
+    stroke: 'var(--color-edge)',
     strokeWidth: 1.5,
     ...(tierById[source] === tierById[target] ? { strokeDasharray: '5 5' } : {}),
   },
@@ -156,6 +171,19 @@ const nodeTypes = { resilienceNode: ResilienceNode }
 
 // ─── modal ───────────────────────────────────────────────────────────────────
 
+function ResourceList({ items, icon }) {
+  return (
+    <ul className="resource-items">
+      {items.map((item, i) => (
+        <li key={i}>
+          <i className={`fa-solid ${icon} resource-bullet`} aria-hidden="true" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 function NodeModal({ nodeContent, onClose }) {
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') onClose() }
@@ -190,20 +218,33 @@ function NodeModal({ nodeContent, onClose }) {
           <section className="modal-section">
             <p className="section-kicker">Resource hub</p>
 
-            <div className="resource-subsection">
-              <h3>Must-reads</h3>
-              <ul>{nodeContent.resources.mustReads.map((item, i) => <li key={i}>{item}</li>)}</ul>
-            </div>
+            {nodeContent.resources.mustReads?.length > 0 && (
+              <div className="resource-subsection">
+                <h3>Must-reads</h3>
+                <ResourceList items={nodeContent.resources.mustReads} icon="fa-book" />
+              </div>
+            )}
 
-            <div className="resource-subsection">
-              <h3>People and orgs</h3>
-              <ul>{nodeContent.resources.people.map((item, i) => <li key={i}>{item}</li>)}</ul>
-            </div>
+            {nodeContent.resources.people?.length > 0 && (
+              <div className="resource-subsection">
+                <h3>People</h3>
+                <ResourceList items={nodeContent.resources.people} icon="fa-users" />
+              </div>
+            )}
 
-            <div className="resource-subsection">
-              <h3>Open questions</h3>
-              <ul>{nodeContent.resources.openQuestions.map((item, i) => <li key={i}>{item}</li>)}</ul>
-            </div>
+            {nodeContent.resources.orgs?.length > 0 && (
+              <div className="resource-subsection">
+                <h3>Organisations</h3>
+                <ResourceList items={nodeContent.resources.orgs} icon="fa-building-columns" />
+              </div>
+            )}
+
+            {nodeContent.resources.openQuestions?.length > 0 && (
+              <div className="resource-subsection">
+                <h3>Open questions</h3>
+                <ResourceList items={nodeContent.resources.openQuestions} icon="fa-magnifying-glass" />
+              </div>
+            )}
           </section>
         </div>
       </article>
@@ -265,8 +306,8 @@ const onNodeClick = useCallback((_event, node) => {
             <Controls
               showInteractive={false}
               style={{
-                background: 'rgba(14,17,23,0.82)',
-                border: '1px solid rgba(255,255,255,0.14)',
+                background: 'var(--color-control-bg)',
+                border: '1px solid var(--color-border-control)',
                 borderRadius: 10,
               }}
             />

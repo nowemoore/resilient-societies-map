@@ -36,6 +36,7 @@ export const emotionalSafetyContent = {
       <>Collective healing practitioners</>,
       <>Organizational psychologists focused on psychological safety</>,
     ],
+    orgs: [],
     openQuestions: [
       <>How do we measure emotional safety without over-surveilling communities?</>,
       <>What rituals sustain courage and disagreement in public institutions?</>,

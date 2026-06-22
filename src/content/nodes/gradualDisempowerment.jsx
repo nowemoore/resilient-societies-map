@@ -34,6 +34,8 @@ export const gradualDisempowermentContent = {
     people: [
       <>Raymond Douglas</>,
       <>Jan Kulveit</>,
+    ],
+    orgs: [
       <><a href="https://acsresearch.org/" target="_blank" rel="noreferrer" className="resource-link">ACS</a></>,
     ],
     openQuestions: [

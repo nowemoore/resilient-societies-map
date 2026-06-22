@@ -1,0 +1,82 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   colour tokens — single source of truth for every colour in the app.
+   Reference these with var(--color-*) everywhere; never hard-code a hex/rgba.
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── base / surfaces ───────────────────────────────────────────────────── */
+  --color-root-fg:        #2d2528; /* default document foreground */
+  --color-bg-center:      #161617; /* body radial-gradient centre */
+  --color-bg-edge:        #0a0a0b; /* body gradient edge + node fill (top) */
+  --color-node-fill:      #0e0e0f; /* node fill (bottom) */
+
+  /* ── tier 1 — silver ───────────────────────────────────────────────────── */
+  --color-tier1-edge:     #b8b8ba;
+  --color-tier1-bright:   #f2f2f4; /* border highlight + label colour */
+  --color-tier1-glow:     rgba(242,242,244,0.08);
+
+  /* ── tier 2 — pink ─────────────────────────────────────────────────────── */
+  --color-tier2-edge:     #c4a8c4;
+  --color-tier2-bright:   #ffe8ff; /* border highlight + label colour */
+  --color-tier2-glow:     rgba(255,232,255,0.08);
+
+  /* ── tier 3 — teal ─────────────────────────────────────────────────────── */
+  --color-tier3-edge:     #2090a4;
+  --color-tier3-bright:   #50d4c4;
+  --color-tier3-text:     #40c8b8;
+  --color-tier3-glow:     rgba(58,188,176,0.14);
+
+  /* ── tier 4 — sage ─────────────────────────────────────────────────────── */
+  --color-tier4-edge:     #607870;
+  --color-tier4-text:     #97b1ab;
+
+  /* ── warm-grey text ramp (hero / faq / modal) ─────────────────────────── */
+  --color-text-heading:       #e8e4e0; /* faq heading, page-hero h1 */
+  --color-text-strong:        #d4cec8; /* faq question, page intro */
+  --color-text-muted:         #8a8480; /* kickers, descriptions, faq answer */
+  --color-text-modal-heading: #e8e4de; /* modal h2 */
+  --color-text-modal-body:    #c8c4be; /* modal base + link hover */
+  --color-text-modal-sub:     #a4a09a; /* overview copy */
+  --color-text-modal-h3:      #e4e0da; /* resource subsection h3 */
+  --color-text-modal-list:    #8a8680; /* resource list + resource link */
+  --color-text-kicker-modal:  #787470; /* section kicker */
+
+  /* ── cool-grey text (controls) ─────────────────────────────────────────── */
+  --color-text-controls:      #e0e6f0; /* react-flow controls */
+
+  /* ── white overlays (lines, fills, borders) ───────────────────────────── */
+  --color-line-soft:          rgba(255,255,255,0.1);   /* dividers, faq border, scrollbar */
+  --color-surface-faint:      rgba(255,255,255,0.03);  /* faq item bg */
+  --color-surface-faint-2:    rgba(255,255,255,0.055); /* faq item open bg */
+  --color-chevron:            rgba(255,255,255,0.35);
+  --color-border-soft:        rgba(255,255,255,0.08);  /* modal section border */
+  --color-white-20:           rgba(255,255,255,0.2);   /* scrollbar hover */
+  --color-border-control:     rgba(255,255,255,0.14);
+  --color-white-strong:       rgba(255,255,255,0.9);   /* modal-close hover */
+
+  /* ── black shadows ─────────────────────────────────────────────────────── */
+  --color-shadow-52:          rgba(0,0,0,0.52);
+  --color-shadow-48:          rgba(0,0,0,0.48);
+  --color-shadow-44:          rgba(0,0,0,0.44);
+  --color-shadow-40:          rgba(0,0,0,0.40);
+  --color-shadow-modal:       rgba(0,0,0,0.72);
+
+  /* ── react-flow controls ───────────────────────────────────────────────── */
+  --color-control-bg:         rgba(14,17,23,0.82);
+  --color-control-bg-hover:   rgba(30,36,48,0.95);
+
+  /* ── edges / lines ─────────────────────────────────────────────────────── */
+  --color-edge:               rgba(255,255,255,0.52);  /* react-flow edge stroke */
+
+  /* ── modal ─────────────────────────────────────────────────────────────── */
+  --color-modal-backdrop:     rgba(4,6,10,0.72);
+  --color-modal-bg-1:         #111214;
+  --color-modal-bg-2:         #141618;
+  --color-modal-close:        rgba(200,196,190,0.5);
+
+  /* ── links (cyan — matches tier-3 nodes) ──────────────────────────────── */
+  --color-link:                 #40c8b8;
+  --color-link-hover:           #50d4c4;
+  --color-link-underline:       rgba(64,200,184,0.45);
+  --color-link-underline-hover: rgba(80,212,196,0.7);
+}

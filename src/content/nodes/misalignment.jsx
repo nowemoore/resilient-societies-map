@@ -36,6 +36,7 @@ export const misalignmentContent = {
       <>AI governance scholars studying liability frameworks for advanced systems</>,
       <>Red-teamers probing deployed models for goal misgeneralisation</>
     ],
+    orgs: [],
     openQuestions: [
       <>How do we verify alignment properties in systems too large to fully inspect?</>,
       <>What institutional structures make misalignment failures correctable at scale?</>,

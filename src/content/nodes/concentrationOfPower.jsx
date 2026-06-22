@@ -34,6 +34,8 @@ export const concentrationOfPowerContent = {
     people: [
       <>Antitrust and competition law researchers</>,
       <>Platform governance scholars</>,
+    ],
+    orgs: [
       <>Civil society organizations focused on corporate accountability</>,
     ],
     openQuestions: [

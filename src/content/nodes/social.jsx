@@ -36,6 +36,7 @@ export const socialContent = {
       <>Researchers on social cohesion and polarization dynamics</>,
       <>Civic technologists designing participatory platforms</>,
     ],
+    orgs: [],
     openQuestions: [
       <>What metrics best capture trust repair before crises occur?</>,
       <>How can digital spaces incentivize bridge-building over outrage?</>,
