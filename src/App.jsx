@@ -345,7 +345,7 @@ const onNodeClick = useCallback((_event, node) => {
                 What makes the author qualified to curate these resources?
                 <i className="fa-solid fa-circle-chevron-down faq-chevron" />
               </summary>
-              <p className="faq-answer">Not much, which is why the author called some of the most well-read and sharp people she knows to rescue. Shout out to [...]</p>
+              <p className="faq-answer">Not much, which is why the author called some of the most well-read and sharp people she knows to rescue. Shout out to Maria Kostylew, Duncan McClemments, Charles Dillon, and others for their thoughtful contributions.</p>
             </details>
           </div>
         </div>
