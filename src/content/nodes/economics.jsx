@@ -29,7 +29,7 @@ export const economicsContent = {
     mustReads: [
       <><a href="https://digitaleconomy.stanford.edu/about/education/the-economics-of-transformative-ai/" target="_blank" rel="noreferrer" className="resource-link">This course</a> by Stanford Digital Economy Lab.</>,
       <><a href="https://asteriskmag.com/issues/03/the-great-inflection-a-debate-about-ai-and-explosive-growth" target="_blank" rel="noreferrer" className="resource-link">The Great Inflection: A Debate About AI and Explosive Growth</a> by Matt Clancy Tamay Besiroglu.</>,
-      <><a href="https://inferencemagazine.substack.com/p/how-much-economic-growth-from-ai" target="_blank" rel="noreferrer" className="resource-link">How Much Economic Growth from AI?</a> by Jack Wiseman and Duncan McClements.</>,
+      <><a href="https://inferencemagazine.substack.com/p/how-much-economic-growth-from-ai" target="_blank" rel="noreferrer" className="resource-link">How Much Economic Growth from AI?</a> by Jack Wiseman and Duncan McClemments.</>,
       <><a href="https://europe2031.ai/" target="_blank" rel="noreferrer" className="resource-link">Europe 2031</a></>,
       <><a href="https://philiptrammell.substack.com/p/capital-in-the-22nd-century" target="_blank" rel="noreferrer" className="resource-link">Capital in the 22nd Century</a> by Philip Trammell and Dwarkesh Patel.</>
     ],
