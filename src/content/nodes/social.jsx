@@ -1,8 +1,8 @@
 export const socialContent = {
   id: 'social',
-  title: 'Social Fragmentation',
+  title: 'Community Risk',
   overview:
-    <>Trust networks are becoming thinner as social life moves into algorithmically sorted spaces. People gain reach but lose durable ties, making communities less able to absorb shock.</>,
+    <>[coming soon!]</>,
   timeline: [
     {
       label: 'Stage 1',
@@ -27,20 +27,16 @@ export const socialContent = {
   ],
   resources: {
     mustReads: [
-      <>Robert Putnam - <a href="" target="_blank" rel="noreferrer" className="resource-link">Bowling Alone</a></>,
-      <>Elinor Ostrom - <a href="" target="_blank" rel="noreferrer" className="resource-link">Governing the Commons</a></>,
-      <>Lina M. Khan - <a href="" target="_blank" rel="noreferrer" className="resource-link">policymakers on digital public infrastructure</a></>,
+      <>[coming soon!]</>,
     ],
     people: [
-      <>Community organizers building local trust infrastructure</>,
-      <>Researchers on social cohesion and polarization dynamics</>,
-      <>Civic technologists designing participatory platforms</>,
+      <>[coming soon!]</>,
     ],
-    orgs: [],
+    orgs: [
+      <>[coming soon!]</>,
+    ],
     openQuestions: [
-      <>What metrics best capture trust repair before crises occur?</>,
-      <>How can digital spaces incentivize bridge-building over outrage?</>,
-      <>Which local institutions are most leverageable for rapid cohesion gains?</>,
+      <>[coming soon!]</>,
     ]
   }
 }

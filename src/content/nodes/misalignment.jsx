@@ -2,7 +2,7 @@ export const misalignmentContent = {
   id: 'misalignment',
   title: 'Misalignment',
   overview:
-    <>As AI systems grow more capable, the gap between what they are optimised for and what humans actually value becomes a structural risk. Misaligned systems can pursue proxy goals in ways that are difficult to detect or reverse.</>,
+    <>As AI systems grow more capable, the gap between the properties they are selected for and those that humans actually value becomes a poorly understood structural risk. Even if individual AIs seem somewhat aligned with their users, composite human-AI or AI-AI intelligences may behave in broadly unpredictable, misaligned or power-seeking ways.</>,
   timeline: [
     {
       label: 'Stage 1',
@@ -27,20 +27,16 @@ export const misalignmentContent = {
   ],
   resources: {
     mustReads: [
-      <>Stuart Russell - <a href="" target="_blank" rel="noreferrer" className="resource-link">Human Compatible</a></>,
-      <>Paul Christiano - <a href="" target="_blank" rel="noreferrer" className="resource-link">What failure looks like</a></>,
-      <>Evan Hubinger et al. - <a href="" target="_blank" rel="noreferrer" className="resource-link">Risks from Learned Optimization</a></>,
+      <><a href="https://www.alignmentforum.org/posts/HBxe6wdjxK239zajf/what-failure-looks-like" target="_blank" rel="noreferrer" className="resource-link">What failure looks like</a> by Paul Christiano.</>,
+      <><a href="https://intelligence.org/2016/12/28/ai-alignment-why-its-hard-and-where-to-start/" target="_blank" rel="noreferrer" className="resource-link">AI Alignment: Why It's Hard, and Where to Start</a> by Eliezer Yudkowsky.</>,
+      <><a href="https://www.forethought.org/research/ai-enabled-coups-how-a-small-group-could-use-ai-to-seize-power#an-ai-workforce-could-be-made-singularly-loyal-to-institutional-leaders" target="_blank" rel="noreferrer" className="resource-link">AI-Enabled Coups: How a Small Group Could Use AI to Seize Power</a> by Tom Davidson, Lukas Finnveden, and Rose Hadshar.</>,
     ],
     people: [
-      <>Alignment researchers working on scalable oversight and interpretability</>,
-      <>AI governance scholars studying liability frameworks for advanced systems</>,
-      <>Red-teamers probing deployed models for goal misgeneralisation</>
+      <>[coming soon!]</>,
     ],
     orgs: [],
     openQuestions: [
-      <>How do we verify alignment properties in systems too large to fully inspect?</>,
-      <>What institutional structures make misalignment failures correctable at scale?</>,
-      <>Can we develop early-warning indicators that precede visible specification gaming?</>
+      <>[coming soon!]</>,
     ]
   }
 }

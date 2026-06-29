@@ -1,8 +1,8 @@
 export const emotionalSafetyContent = {
   id: 'emotionalSafety',
-  title: 'Emotional Safety Erosion',
+  title: 'Emotional Safety',
   overview:
-    <>When people feel persistently surveilled, mocked, or disposable, they reduce social risk-taking. This undermines learning, creativity, and conflict repair at the group level.</>,
+    <>[coming soon!]</>,
   timeline: [
     {
       label: 'Stage 1',
@@ -27,20 +27,16 @@ export const emotionalSafetyContent = {
   ],
   resources: {
     mustReads: [
-      <>Amy Edmondson - <a href="" target="_blank" rel="noreferrer" className="resource-link">The Fearless Organization</a></>,
-      <>Brene Brown - <a href="" target="_blank" rel="noreferrer" className="resource-link">Daring Greatly</a></>,
-      <>bell hooks - <a href="" target="_blank" rel="noreferrer" className="resource-link">All About Love</a></>,
+      <>[coming soon!]</>,
     ],
     people: [
-      <>Trauma-informed educators and school climate designers</>,
-      <>Collective healing practitioners</>,
-      <>Organizational psychologists focused on psychological safety</>,
+      <>[coming soon!]</>,
     ],
-    orgs: [],
+    orgs: [
+      <>[coming soon!]</>,
+    ],
     openQuestions: [
-      <>How do we measure emotional safety without over-surveilling communities?</>,
-      <>What rituals sustain courage and disagreement in public institutions?</>,
-      <>Which interventions scale without becoming performative?</>,
+      <>[coming soon!]</>,
     ]
   }
 }
